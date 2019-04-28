@@ -1,0 +1,35 @@
+<div ng-controller="employeesCtrl">
+
+	<br />
+	<form>
+		<div class="form-group">
+			<label for="identificationNE">Identifikacija novog radnika</label> <input
+				ng-model="newEmployee.identification" type="text" class="form-control"
+				id="identificationNE">
+		</div>
+		<div class="form-group">
+			<label for="nameNE">Ime i prezime novog radnika</label> <input
+				ng-model="newEmployee.name" type="text" class="form-control"
+				id="nameNE">
+		</div>
+		<div class="form-group">
+			<label for="emailNE">Email novog radnika</label> <input
+				ng-model="newEmployee.email" type="text" class="form-control"
+				id="emailNE">
+		</div>
+		<div class="form-group">
+			<label for="yearsOfServiceNE">Radni staz novog radnika</label> <input
+				ng-model="newEmployee.yearsOfService" type="text" class="form-control"
+				id="yearsOfServiceNE">
+		</div>
+		
+		<div class="form-group">
+			<label for="sectorNE">Sektor</label> <select
+				ng-model="newEmployee.sectorId" class="form-control" id="sectorNE">
+				<option ng-repeat="s in sectors" value="{{s.id}}">{{s.sectorName}}</option>
+			</select>
+		</div>
+
+		<button ng-click="doAdd()" type="button" class="btn btn-primary">Dodaj</button>
+	</form>
+</div>

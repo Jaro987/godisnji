@@ -1,0 +1,60 @@
+<div ng-controller="employeesCtrl">
+
+	<br />
+	<form>
+		<div class="form-group">
+			<label for="identificationSE">Identifikacija</label> <input
+				ng-model="searchEmployee.identification" type="text" class="form-control"
+				id="identificationSE">
+		</div>
+		<div class="form-group">
+			<label for="nameSE">Ime i prezime</label> <input
+				ng-model="searchEmployee.name" type="text" class="form-control"
+				id="nameSE">
+		</div>
+		<div class="form-group">
+			<label for="sectorSE">Sektor</label> <select
+				ng-model="searchEmployee.sectorId" class="form-control" id="sectorSE">
+				<option ng-repeat="s in sectors" value="{{s.id}}">{{s.sectorName}}</option>
+			</select>
+		</div>
+
+
+		<button ng-click="search()" type="button" class="btn btn-primary">Traži</button>
+		<button ng-click="cancelSearch()" type="button" class="btn btn-primary pull-right">Poništi pretragu</button>
+	</form>
+	
+	
+	<br /> <br /> <br />
+	<button ng-click="add()" class="btn btn-primary">Dodaj novog radnika</button>
+	<div class="btn-group pull-right">
+		<button class="btn btn-primary" ng-click="back()" ng-disabled="pageNum == 0">Prethodna</button>
+		<button class="btn btn-primary" ng-click="forward()" ng-disabled="pageNum == totalPages - 1">Sledeća</button>
+	</div>
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>Identifikacioni broj</th>
+				<th>Ime i prezime</th>
+				<th>Email</th>
+				<th>Slobodni dani</th>
+				<th>Sektor</th>
+				<th>Akcije</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="e in employees">
+				<td>{{e.identification}}</td>
+				<td>{{e.name}}</td>
+				<td>{{e.email}}</td>
+				<td>{{e.daysOff}}</td>
+				<td>{{e.sectorName}}</td>
+				<td>
+					<button ng-click="remove(e.id)" class="btn btn-danger">Obriši</button>
+					<button ng-click="edit(e.id)" class="btn btn-warning">Izmeni</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<hr>
+</div>

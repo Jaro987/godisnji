@@ -1,0 +1,35 @@
+<div ng-controller="editEmployeeCtrl">
+
+	<br />
+	<form>
+		<div class="form-group">
+			<label for="identificationOE">Identifikacija</label> <input
+				ng-model="oldEmployee.identification" type="text" class="form-control"
+				id="identificationOE">
+		</div>
+		<div class="form-group">
+			<label for="nameOE">Ime i prezime</label> <input
+				ng-model="oldEmployee.name" type="text" class="form-control"
+				id="nameOE">
+		</div>
+		<div class="form-group">
+			<label for="emailOE">Email</label> <input
+				ng-model="oldEmployee.email" type="text" class="form-control"
+				id="emailOE">
+		</div>
+		<div class="form-group">
+			<label for="yearsOfServiceOE">Staž</label> <input
+				ng-model="oldEmployee.yearsOfService" type="text" class="form-control"
+				id="yearsOfServiceOE">
+		</div>
+		
+		<div class="form-group">
+			<label for="sectorOE">Sektor</label> <select
+				ng-model="oldEmployee.sectorId" class="form-control" id="sectorOE">
+				<option ng-repeat="s in sectors" value="{{s.id}}" ng-selected="s.id == oldEmployee.sectorId">{{s.sectorName}}</option>
+			</select>
+		</div>
+
+		<button ng-click="doEdit()" type="button" class="btn btn-primary">Izmeni</button>
+	</form>
+</div>
