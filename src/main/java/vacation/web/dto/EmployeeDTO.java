@@ -47,8 +47,9 @@ public class EmployeeDTO {
 	public int getDaysOff() {
 		return daysOff;
 	}
-	public void setDaysOff(int daysOff) {
-		this.daysOff = daysOff;
+	public void setDaysOff(int yearsOfService) {
+		
+		this.daysOff = 20+(getYearsOfService()/5);
 	}
 	public Long getSectorId() {
 		return sectorId;
