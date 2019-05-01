@@ -14,8 +14,6 @@ public class EmployeeDTO {
 	private int daysOff;
 	private Long sectorId;
 	private String sectorName;
-	public int defaultNumberOfDaysOff = 20;
-	
 	public Long getId() {
 		return id;
 	}
@@ -50,8 +48,8 @@ public class EmployeeDTO {
 		return daysOff;
 	}
 	public void setDaysOff(int yearsOfService) {
-		int additionDayOffEvery5Years = getYearsOfService()/5;
-		this.daysOff = defaultNumberOfDaysOff+additionDayOffEvery5Years;
+		
+		this.daysOff = 20+(getYearsOfService()/5);
 	}
 	public Long getSectorId() {
 		return sectorId;
